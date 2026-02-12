@@ -64,6 +64,8 @@ This project addresses that gap by developing a full-stack web application that 
 
 ### 4.1 High-Level Architecture Diagram
 
+![System Architecture](architecture.png)
+
 ```
 ┌──────────────────────────────────┐
 │        React Frontend            │
