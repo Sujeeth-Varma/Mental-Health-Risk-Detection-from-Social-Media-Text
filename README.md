@@ -26,6 +26,9 @@ This project is a scalable, non-intrusive, and explainable AI system that analyz
 
 ```
 text-based-mental-health-detector/
+├── Dockerfile                    # Multi-stage Docker build
+├── nginx.conf                    # Nginx reverse-proxy config
+├── supervisord.conf              # Process manager config
 ├── backend/
 │   ├── app.py                    # Flask application entry point
 │   ├── config.py                 # Configuration settings
@@ -65,7 +68,25 @@ text-based-mental-health-detector/
 
 ## Setup & Installation
 
-### Backend
+### Docker (Recommended)
+
+The easiest way to run the full stack is with Docker. A single container serves both the React frontend and the Flask backend with pre-trained models.
+
+```bash
+# Build the image
+docker build -t mental-health-detector .
+
+# Run the container
+docker run -p 80:80 mental-health-detector
+```
+
+Open **http://localhost** — the frontend and backend are both ready to use.
+
+> **Note:** The Docker image bundles the trained models from `backend/models/`. If you retrain, rebuild the image to pick up the new models.
+
+### Manual Setup
+
+#### Backend
 
 ```bash
 cd backend
@@ -79,12 +100,12 @@ python app.py
 
 Backend runs on `http://localhost:5000`
 
-### Frontend
+#### Frontend
 
 ```bash
 cd frontend
 npm install
-npm start
+npm run dev
 ```
 
 Frontend runs on `http://localhost:3000`

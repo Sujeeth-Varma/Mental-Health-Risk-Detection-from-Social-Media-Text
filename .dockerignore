@@ -1,0 +1,12 @@
+node_modules
+frontend/node_modules
+frontend/dist
+__pycache__
+*.pyc
+*.pyo
+.git
+.gitignore
+.vscode
+*.md
+.env
+.DS_Store

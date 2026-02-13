@@ -31,7 +31,7 @@ RISK_LEVELS = {
 # Flask settings
 FLASK_HOST = "0.0.0.0"
 FLASK_PORT = 5000
-FLASK_DEBUG = True
+FLASK_DEBUG = os.environ.get("FLASK_DEBUG", "1") == "1"
 
 # NLP settings
 MIN_TEXT_LENGTH = 10
