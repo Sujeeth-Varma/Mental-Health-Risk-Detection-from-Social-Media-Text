@@ -32,8 +32,11 @@ nltk.download('stopwords', quiet=True); \
 nltk.download('wordnet', quiet=True); \
 nltk.download('averaged_perceptron_tagger', quiet=True)"
 
-# Copy backend source code and trained models
+# Copy backend source code (pre-trained models excluded via .dockerignore)
 COPY backend/ /app/backend/
+
+# Train models at build time
+RUN cd /app/backend && python train.py
 
 # Copy built frontend from stage 1
 COPY --from=frontend-build /app/frontend/dist /app/frontend/dist

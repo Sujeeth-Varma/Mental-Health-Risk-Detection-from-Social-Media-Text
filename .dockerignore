@@ -10,3 +10,4 @@ __pycache__
 *.md
 .env
 .DS_Store
+backend/models/*.joblib
